@@ -6,28 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Tu hoja de estilos personalizada -->
   <link rel="stylesheet" href="css/styles.css">
-  <!-- Ícono personalizado -->
   <link rel="icon" href="img/logo.jpg" type="image/png">
-  <!-- Fuente retro -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    footer.footer {
-      margin-top: auto !important;
-      border-top: 3px solid #ffc107;
-    }
-  </style>
+  
 </head>
 <body>
   <!-- NAVBAR (igual que en index.html, enlaces ajustados) -->
@@ -53,23 +35,46 @@
     </div>
   </nav>
 
-  <div class="container mt-5">
-    <h1 class="mb-4 text-center" style="font-family: 'Press Start 2P', cursive;">Enlaces útiles sobre videojuegos retro</h1>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <a href="https://www.retrorgb.com/" target="_blank"><strong>RetroRGB</strong></a><br>
-        Guía y noticias sobre hardware y preservación de videojuegos clásicos.
-      </li>
-      <li class="list-group-item">
-        <a href="https://www.mobygames.com/" target="_blank"><strong>MobyGames</strong></a><br>
-        Base de datos gigante de videojuegos clásicos y modernos.
-      </li>
-      <li class="list-group-item">
-        <a href="https://www.reddit.com/r/retrogaming/" target="_blank"><strong>Reddit: r/retrogaming</strong></a><br>
-        Comunidad online donde los fans comparten fotos, colecciones y noticias retro.
-      </li>
-    </ul>
+ <div class="container mt-5">
+  <h1 class="mb-4 text-center" style="font-family: 'Press Start 2P', cursive;">
+    Enlaces útiles sobre videojuegos retro
+  </h1>
+  
+  <!-- IFRAME VIDEO YOUTUBE -->
+  <div class="iframe-container mb-4">
+    <iframe 
+      src="https://www.youtube.com/embed/argpSxB1NQE?si=9-Yxu_t9UwXpVeQ2&amp;start=6"
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
   </div>
+
+  <ul class="list-group list-group-flush mb-5">
+    <li class="list-group-item">
+      <a href="https://www.retrorgb.com/" target="_blank"><strong>RetroRGB</strong></a><br>
+      Guía y noticias sobre hardware y preservación de videojuegos clásicos.
+    </li>
+    <li class="list-group-item">
+      <a href="https://www.mobygames.com/" target="_blank"><strong>MobyGames</strong></a><br>
+      Base de datos gigante de videojuegos clásicos y modernos.
+    </li>
+    <li class="list-group-item">
+      <a href="https://www.reddit.com/r/retrogaming/" target="_blank"><strong>Reddit: r/retrogaming</strong></a><br>
+      Comunidad online donde los fans comparten fotos, colecciones y noticias retro.
+    </li>
+  </ul>
+
+  <!-- IFRAME GOOGLE MAPS -->
+  <div class="iframe-container mb-4">
+    <iframe
+      src="https://www.google.com/maps?q=RetroGames+Shop,+Santo+Domingo,+Dominican+Republic&output=embed"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación de la tienda RetroGames Shop"></iframe>
+  </div>
+</div>
+
   
   <script src="js/darkmode.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -98,7 +103,7 @@
   </div>
 
   <script>
-    // MODAL de Política de Privacidad, solo mostrar/ocultar (colores los controla el CSS)
+    // MODAL de Política de Privacidad
     document.getElementById('abrir-modal-privacidad').onclick = function(e) {
       e.preventDefault();
       document.getElementById('modal-privacidad').style.display = 'flex';
