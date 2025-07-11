@@ -110,4 +110,15 @@ document.addEventListener("click", function(event) {
   }
 });
 
+// Mostrar el modal al hacer click en el link
+document.getElementById('privacidad-link').onclick = function(e) {
+    e.preventDefault();
+    document.getElementById('modal-privacidad').style.display = 'flex';
+};
+// Cerrar el modal al hacer click en el botón de cerrar
+document.getElementById('cerrar-modal').onclick = function() {
+    document.getElementById('modal-privacidad').style.display = 'none';
+};
+
+
  

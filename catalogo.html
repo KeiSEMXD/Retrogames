@@ -4,17 +4,28 @@
   <meta charset="UTF-8">
   <title>Catálogo | RetroGames Shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <link rel="stylesheet" href="css/styles.css">
-
   <link rel="icon" href="img/logo.jpg" type="image/png">
- 
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  
   <meta name="description" content="Tienda online de videojuegos retro, compra tus clásicos favoritos de los 80s y 90s.">
   <meta name="keywords" content="videojuegos retro, tienda, NES, SNES, Sega, clásicos">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    footer.footer {
+      margin-top: auto !important;
+      border-top: 3px solid #ffc107;
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -45,21 +56,53 @@
 </div>
 
 <div class="container my-5">
-  <h2 class="mb-4 text-center">Catalogo de Juegos</h2>
+  <h2 class="mb-4 text-center">Catálogo de Juegos</h2>
   <div class="row" id="productosDestacados">
     <!-- Aquí se insertarán los productos -->
   </div>
 </div>
 
+<script src="js/main.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
+<footer class="footer text-center py-3 bg-dark text-light" style="font-family: 'Press Start 2P', cursive; font-size: 1rem; letter-spacing:1px;">
+  © 2025 RetroGames Shop. Todos los derechos reservados. |
+  <a href="#" id="abrir-modal-privacidad" style="color:#ffc107;">Política de Privacidad</a>
+</footer>
 
+<!-- Modal de Política de Privacidad -->
+<div id="modal-privacidad">
+  <div class="modal-content">
+    <button id="cerrar-modal-privacidad" style="position:absolute;top:16px;right:16px;font-size:2rem;background:none;border:none;color:#ffc107;">&times;</button>
+    <h2 style="color:#ffc107;font-family:'Press Start 2P',cursive;">Política de Privacidad</h2>
+    <p style="margin-top:24px;">
+      En RetroGames Shop respetamos tu privacidad. Tus datos no serán compartidos con terceros. Solo usamos cookies para mejorar tu experiencia de usuario.<br><br>
+      • No recolectamos información personal sensible.<br>
+      • Tu información solo se usa para fines de navegación y análisis.<br>
+      • Puedes contactarnos para eliminar tus datos si algún día tenemos formularios.<br>
+      <br>
+      ¡Gracias por confiar en RetroGames Shop!
+    </p>
+    <button class="btn btn-warning mt-3" id="cerrar-modal-privacidad-2">Cerrar</button>
+  </div>
+</div>
 
-
-  
-  <script src="js/main.js"></script>
-  <script src="js/darkmode.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+  // MODAL de Política de Privacidad, solo mostrar/ocultar (colores los controla el CSS)
+  document.getElementById('abrir-modal-privacidad').onclick = function(e) {
+    e.preventDefault();
+    document.getElementById('modal-privacidad').style.display = 'flex';
+  };
+  document.getElementById('cerrar-modal-privacidad').onclick = cerrarModal;
+  document.getElementById('cerrar-modal-privacidad-2').onclick = cerrarModal;
+  document.getElementById('modal-privacidad').onclick = function(e) {
+    if (e.target === this) cerrarModal();
+  };
+  function cerrarModal() {
+    document.getElementById('modal-privacidad').style.display = 'none';
+  }
+</script>
 </body>
 </html>
-

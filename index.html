@@ -88,16 +88,78 @@
   </div>
 </div>
 
+<!-- Footer y Modal van siempre al final del body -->
 
+<footer class="footer text-center py-3 bg-dark text-light mt-5" style="font-family: 'Press Start 2P', cursive; font-size: 1rem; letter-spacing:1px; border-top: 3px solid #ffc107;">
+  © 2025 RetroGames Shop. Todos los derechos reservados. |
+  <a href="#" id="abrir-modal-privacidad" style="color:#ffc107; text-decoration:underline;">Política de Privacidad</a>
+</footer>
 
-  <!-- Aquí vamos a poner la barra de navegación y el contenido principal, pero espera a que yo te lo indique. -->
+<!-- Modal de Política de Privacidad -->
+<div id="modal-privacidad" style="display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:9999;background:rgba(0,0,0,0.7);justify-content:center;align-items:center;">
+  <div class="modal-content">
+    <button id="cerrar-modal-privacidad" style="position:absolute;top:16px;right:16px;font-size:2rem;background:none;border:none;color:#ffc107;">&times;</button>
+    <h2 style="color:#ffc107;font-family:'Press Start 2P',cursive;">Política de Privacidad</h2>
+    <p style="margin-top:24px;">
+      En RetroGames Shop respetamos tu privacidad. Tus datos no serán compartidos con terceros. Solo usamos cookies para mejorar tu experiencia de usuario.<br><br>
+      • No recolectamos información personal sensible.<br>
+      • Tu información solo se usa para fines de navegación y análisis.<br>
+      • Puedes contactarnos para eliminar tus datos si algún día tenemos formularios.<br>
+      <br>
+      ¡Gracias por confiar en RetroGames Shop!
+    </p>
+    <button class="btn btn-warning mt-3" id="cerrar-modal-privacidad-2">Cerrar</button>
+  </div>
+</div>
 
-  <!-- Vincula tu JS personalizado -->
-  <script src="js/main.js"></script>
-  <script src="js/darkmode.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- JQuery por si quieres usarlo (opcional) -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- SCRIPTS: SOLO ESTOS SON NECESARIOS (tu darkmode.js va aparte) -->
+<script src="js/main.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+  // MODAL de Política de Privacidad con adaptación al modo oscuro/claro
+  document.getElementById('abrir-modal-privacidad').onclick = function(e) {
+    e.preventDefault();
+    const modal = document.getElementById('modal-privacidad');
+    modal.style.display = 'flex';
+    aplicarDarkModeModal();
+  };
+
+  document.getElementById('cerrar-modal-privacidad').onclick = cerrarModal;
+  document.getElementById('cerrar-modal-privacidad-2').onclick = cerrarModal;
+  document.getElementById('modal-privacidad').onclick = function(e) {
+    if (e.target === this) cerrarModal();
+  };
+
+  function cerrarModal() {
+    document.getElementById('modal-privacidad').style.display = 'none';
+  }
+
+  function aplicarDarkModeModal() {
+    const modal = document.querySelector('#modal-privacidad .modal-content');
+    if(document.body.classList.contains('dark-mode')) {
+      modal.style.background = '#232323';
+      modal.style.color = '#fff';
+    } else {
+      modal.style.background = '#fff';
+      modal.style.color = '#232323';
+    }
+  }
+
+  // Detecta cambio de modo oscuro/claro y adapta el modal si está abierto
+  const darkBtn = document.getElementById('toggle-dark');
+  if (darkBtn) {
+    darkBtn.addEventListener('click', function() {
+      setTimeout(() => {
+        if (document.getElementById('modal-privacidad').style.display === 'flex') {
+          aplicarDarkModeModal();
+        }
+      }, 50);
+    });
+  }
+</script>
 </body>
 </html>
 
